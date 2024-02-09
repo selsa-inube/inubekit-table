@@ -35,6 +35,7 @@
     "postversion": "git push --follow-tags && npm run auto release"
   },
   "dependencies": {
+    "@inubekit/blanket": "^1.0.0",
     "@inubekit/foundations": "^1.1.2",
     "@inubekit/hooks": "^1.1.0",
     "@inubekit/icon": "^1.1.0",
