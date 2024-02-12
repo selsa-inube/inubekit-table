@@ -1,3 +1,28 @@
+# v0.0.2 (Mon Feb 12 2024)
+
+#### ⚠️ Pushed to `main`
+
+- refactor(Table.stories): remove unused useEffect hook (carlos3k11@gmail.com)
+- refactor(Table): organize imports (carlos3k11@gmail.com)
+- fix(Table): adjust borders according to designs (carlos3k11@gmail.com)
+- feat: add styled-components as an external dependency (carlos3k11@gmail.com)
+- feat: export component from the library (carlos3k11@gmail.com)
+- feat(Table.Pagination): implement storytelling and documentation (carlos3k11@gmail.com)
+- feat(Table): implement storytelling and documentation (carlos3k11@gmail.com)
+- feat: install necessary dependencies (carlos3k11@gmail.com)
+- feat: adjust dependencies in the distributable (carlos3k11@gmail.com)
+- feat: remove unused dependencies and update Vite configuration (carlos3k11@gmail.com)
+- refactor: update package.json with new component name (carlos3k11@gmail.com)
+- feat: implement type definition in TS (carlos3k11@gmail.com)
+- Initial commit ([@Andresbl123](https://github.com/Andresbl123))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Andres Babativa (carlos3k11@gmail.com)
+
+---
+
 # v0.0.1 (Wed Jan 17 2024)
 
 #### ⚠️ Pushed to `main`
