@@ -5,7 +5,6 @@ import { useMediaQuery } from "@inubekit/hooks";
 import { useMediaQueries } from "@inubekit/hooks";
 
 import { DisplayActions } from "./DisplayActions";
-import { ITableProps, IAction, IActions, IBreakpoint, ITitle } from ".";
 import {
   StyledTable,
   StyledThead,
@@ -15,6 +14,7 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
+import { ITableProps, IAction, IActions, IBreakpoint, ITitle } from ".";
 
 function findCurrentMediaQuery(currentMediaQuery: { [key: string]: boolean }) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);

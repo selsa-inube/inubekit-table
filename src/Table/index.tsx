@@ -1,8 +1,7 @@
 import { useMemo, useState } from "react";
-import { Pagination } from "./Pagination";
-
 import { Stack } from "@inubekit/stack";
 
+import { Pagination } from "./Pagination";
 import { TableUI } from "./interface";
 import { StyledContainer } from "./styles";
 
