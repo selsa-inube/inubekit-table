@@ -4,6 +4,7 @@ import { Pagination } from "./Pagination";
 import { Stack } from "@inubekit/stack";
 
 import { TableUI } from "./interface";
+import { StyledContainer } from "./styles";
 
 export interface IActions {
   id: string;
@@ -116,7 +117,7 @@ export const Table = (props: ITableProps) => {
   }
 
   return (
-    <div id={id}>
+    <StyledContainer id={id}>
       <Stack direction="column">
         <TableUI
           titles={titles}
@@ -125,6 +126,7 @@ export const Table = (props: ITableProps) => {
           breakpoints={breakpoints!}
           content={content}
           infoTitle={infoTitle!}
+          pageLength={pageLength}
         />
         {filteredEntries.length > pageLength && (
           <Pagination
@@ -138,6 +140,6 @@ export const Table = (props: ITableProps) => {
           />
         )}
       </Stack>
-    </div>
+    </StyledContainer>
   );
 };

@@ -78,7 +78,7 @@ function ShowAction(
 }
 
 export const TableUI = (props: Omit<ITableProps, "id">) => {
-  const { titles, actions, entries, breakpoints, content } = props;
+  const { titles, actions, entries, breakpoints, content, pageLength } = props;
 
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
 
@@ -121,6 +121,8 @@ export const TableUI = (props: Omit<ITableProps, "id">) => {
           <StyledTr
             key={`entry-${entry.id}`}
             aria-labelledby={`entry-${entry.id}`}
+            $pageLength={pageLength}
+            $entriesLength={entries.length}
           >
             {TitleColumns.map((title) => (
               <StyledTd key={`e-${entry[title.id]}`}>

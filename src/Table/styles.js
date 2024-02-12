@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import { inube } from "@inubekit/foundations";
 
+export const StyledContainer = styled.div`
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid
+    ${({ theme }) =>
+      theme?.color?.stroke?.divider?.regular ||
+      inube.color.stroke.divider.regular};
+`;
+
 export const StyledTable = styled.table`
   box-sizing: border-box;
   border-collapse: collapse;
@@ -28,26 +37,25 @@ export const StyledTr = styled.tr`
       theme?.color?.stroke?.divider?.regular ||
       inube.color.stroke.divider.regular};
   height: 40px;
+
+  &:last-child {
+    border-bottom: ${({ $entriesLength, $pageLength }) =>
+      $entriesLength < $pageLength && "none"};
+  }
 `;
 
 export const StyledThTitle = styled.th`
-  padding: ${({ theme }) =>
-    `${theme?.spacing?.s150} ${theme?.spacing?.s200}` ||
-    `${inube.spacing?.s150} ${inube.spacing.s200}`};
+  padding: ${inube.spacing?.s150} ${inube.spacing.s200};
 `;
 
 export const StyledThAction = styled.th`
   background-color: ${({ theme }) =>
     theme?.color?.surface?.dark?.clear || inube.color.surface.dark.clear};
   width: 80px;
-  padding: ${({ theme }) =>
-    `${theme?.spacing?.s150} ${theme?.spacing?.s0}` ||
-    `${inube.spacing.s150} ${inube.spacing.s0}`};
+  padding: ${inube.spacing.s150} ${inube.spacing.s0};
 `;
 
 export const StyledTd = styled.td`
-  padding: ${({ theme }) =>
-    `${theme?.spacing?.s0} ${theme?.spacing?.s200}` ||
-    `${inube.spacing.s0} ${inube.spacing.s200}`};
+  padding: ${inube.spacing.s0} ${inube.spacing.s200};
   text-align: center;
 `;
