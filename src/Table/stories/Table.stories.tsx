@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MdClose } from "react-icons/md";
 
 import { Blanket } from "@inubekit/blanket";
@@ -20,9 +20,7 @@ const story = {
 const LoremModal = () => {
   const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    if (!isVisible) return;
-  }, [isVisible]);
+  if (!isVisible) return null;
 
   return (
     <Blanket>
@@ -39,8 +37,10 @@ const LoremModal = () => {
           </Text>
           <MdClose onClick={() => setIsVisible(false)} />
         </Stack>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia
-        odio vitae vestibulum.
+        <Text textAlign="center" size="medium">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+          lacinia odio vitae vestibulum.
+        </Text>
       </StyledModal>
     </Blanket>
   );
