@@ -1,7 +1,7 @@
 import { MdToggleOff, MdModeEdit, MdDelete } from "react-icons/md";
 import { StyledContainerActions } from "./styles";
 
-const titlesMuck = [
+const titlesMock = [
   {
     id: "username",
     titleName: "Username",
@@ -24,7 +24,7 @@ const titlesMuck = [
   },
 ];
 
-const actionsMuck = [
+const actionsMock = [
   {
     id: "Activate",
     actionName: "Activate",
@@ -57,7 +57,7 @@ const actionsMuck = [
   },
 ];
 
-const breakPointsMuck = [
+const breakPointsMock = [
   { breakpoint: "(min-width: 1091px)", totalColumns: 4 },
   { breakpoint: "(max-width: 1090px)", totalColumns: 3 },
   { breakpoint: "(max-width: 980px)", totalColumns: 2 },
@@ -67,4 +67,4 @@ const breakPointsMuck = [
   { breakpoint: "(max-width: 360px)", totalColumns: 1 },
 ];
 
-export { titlesMuck, actionsMuck, breakPointsMuck };
+export { titlesMock, actionsMock, breakPointsMock };

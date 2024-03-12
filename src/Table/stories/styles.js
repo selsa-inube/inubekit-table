@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { inube } from "@inubekit/foundations";
 
-export const StyledContainerActions = styled.div`
+const StyledContainerActions = styled.div`
   > svg {
     width: 24px;
     height: 24px;
@@ -13,7 +13,7 @@ export const StyledContainerActions = styled.div`
   }
 `;
 
-export const StyledModal = styled.div`
+const StyledModal = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -22,3 +22,5 @@ export const StyledModal = styled.div`
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 `;
+
+export { StyledContainerActions, StyledModal };

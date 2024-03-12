@@ -14,7 +14,7 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-import { ITableProps, IAction, IActions, IBreakpoint, ITitle } from ".";
+import { ITable, IAction, IActions, IBreakpoint, ITitle } from ".";
 
 function findCurrentMediaQuery(currentMediaQuery: { [key: string]: boolean }) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);
@@ -77,7 +77,7 @@ function ShowAction(
   );
 }
 
-export const TableUI = (props: Omit<ITableProps, "id">) => {
+const TableUI = (props: Omit<ITable, "id">) => {
   const { titles, actions, entries, breakpoints, content, pageLength } = props;
 
   const mediaActionOpen = useMediaQuery("(max-width: 850px)");
@@ -143,3 +143,5 @@ export const TableUI = (props: Omit<ITableProps, "id">) => {
     </StyledTable>
   );
 };
+
+export { TableUI };

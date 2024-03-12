@@ -4,7 +4,7 @@ import { presente } from "@inubekit/foundations";
 import { PaginationController } from "./PaginationController";
 import { Pagination } from "..";
 import { props, parameters } from "../../props";
-import { ITableProps } from "../..";
+import { ITable } from "../..";
 
 const story = {
   title: "data/Table/Pagination",
@@ -13,9 +13,7 @@ const story = {
   argTypes: props,
 };
 
-export const Default = (args: ITableProps) => (
-  <PaginationController {...args} />
-);
+const Default = (args: ITable) => <PaginationController {...args} />;
 
 Default.args = {
   entries: [
@@ -26,7 +24,7 @@ Default.args = {
 
 const theme = structuredClone(presente);
 
-export const Themed = (args: ITableProps) => (
+const Themed = (args: ITable) => (
   <ThemeProvider theme={theme}>
     <Default {...args} />
   </ThemeProvider>
@@ -36,4 +34,5 @@ Themed.args = {
   ...Default.args,
 };
 
+export { Themed, Default };
 export default story;

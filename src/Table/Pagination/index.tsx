@@ -9,7 +9,7 @@ import { Text } from "@inubekit/text";
 import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
 
-export interface IPaginationProps {
+interface IPagination {
   firstEntryInPage: number;
   lastEntryInPage: number;
   totalRecords: number;
@@ -19,7 +19,7 @@ export interface IPaginationProps {
   handleEndPage: () => void;
 }
 
-export const Pagination = (props: IPaginationProps) => {
+const Pagination = (props: IPagination) => {
   const {
     firstEntryInPage,
     lastEntryInPage,
@@ -29,6 +29,54 @@ export const Pagination = (props: IPaginationProps) => {
     handleNextPage,
     handleEndPage,
   } = props;
+
+  const interceptHandleStartPage = () => {
+    try {
+      handleStartPage && handleStartPage();
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const interceptHandlePrevPage = () => {
+    try {
+      handlePrevPage && handlePrevPage();
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const interceptHandleNextPage = () => {
+    try {
+      handleNextPage && handleNextPage();
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const interceptHandleEndPage = () => {
+    try {
+      handleEndPage && handleEndPage();
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
 
   return (
     <Stack justifyContent="flex-end" alignItems="center">
@@ -52,27 +100,30 @@ export const Pagination = (props: IPaginationProps) => {
           cursorHover={true}
           appearance={"dark"}
           icon={<MdFirstPage />}
-          onClick={handleStartPage}
+          onClick={interceptHandleStartPage}
         />
         <Icon
           cursorHover={true}
           appearance={"dark"}
           icon={<MdNavigateBefore />}
-          onClick={handlePrevPage}
+          onClick={interceptHandlePrevPage}
         />
         <Icon
           cursorHover={true}
           appearance={"dark"}
           icon={<MdNavigateNext />}
-          onClick={handleNextPage}
+          onClick={interceptHandleNextPage}
         />
         <Icon
           cursorHover={true}
           appearance={"dark"}
           icon={<MdLastPage />}
-          onClick={handleEndPage}
+          onClick={interceptHandleEndPage}
         />
       </Stack>
     </Stack>
   );
 };
+
+export { Pagination };
+export type { IPagination };

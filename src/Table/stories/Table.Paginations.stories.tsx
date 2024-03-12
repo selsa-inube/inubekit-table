@@ -1,6 +1,6 @@
-import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
+import { titlesMock, actionsMock, breakPointsMock } from "./mocks";
 
-import { Table, ITableProps } from "..";
+import { Table, ITable } from "..";
 
 import { props } from "../props";
 
@@ -10,11 +10,11 @@ const story = {
   argTypes: props,
 };
 
-export const Paginations = (args: ITableProps) => <Table {...args} />;
+const Paginations = (args: ITable) => <Table {...args} />;
 Paginations.args = {
   id: "tableId",
-  titles: titlesMuck,
-  actions: actionsMuck,
+  titles: titlesMock,
+  actions: actionsMock,
   entries: [
     {
       id: "11",
@@ -229,9 +229,10 @@ Paginations.args = {
   ],
   filter: "",
   pageLength: 10,
-  breakpoints: breakPointsMuck,
+  breakpoints: breakPointsMock,
   modalTitle: "Form",
   infoTitle: "Information",
 };
 
+export { Paginations };
 export default story;
