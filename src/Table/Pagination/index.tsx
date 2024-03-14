@@ -30,54 +30,6 @@ const Pagination = (props: IPagination) => {
     handleEndPage,
   } = props;
 
-  const interceptHandleStartPage = () => {
-    try {
-      handleStartPage && handleStartPage();
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
-    }
-  };
-
-  const interceptHandlePrevPage = () => {
-    try {
-      handlePrevPage && handlePrevPage();
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
-    }
-  };
-
-  const interceptHandleNextPage = () => {
-    try {
-      handleNextPage && handleNextPage();
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
-    }
-  };
-
-  const interceptHandleEndPage = () => {
-    try {
-      handleEndPage && handleEndPage();
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
-    }
-  };
-
   return (
     <Stack justifyContent="flex-end" alignItems="center">
       <Text
@@ -100,25 +52,25 @@ const Pagination = (props: IPagination) => {
           cursorHover={true}
           appearance={"dark"}
           icon={<MdFirstPage />}
-          onClick={interceptHandleStartPage}
+          onClick={handleStartPage}
         />
         <Icon
           cursorHover={true}
           appearance={"dark"}
           icon={<MdNavigateBefore />}
-          onClick={interceptHandlePrevPage}
+          onClick={handlePrevPage}
         />
         <Icon
           cursorHover={true}
           appearance={"dark"}
           icon={<MdNavigateNext />}
-          onClick={interceptHandleNextPage}
+          onClick={handleNextPage}
         />
         <Icon
           cursorHover={true}
           appearance={"dark"}
           icon={<MdLastPage />}
-          onClick={interceptHandleEndPage}
+          onClick={handleEndPage}
         />
       </Stack>
     </Stack>
