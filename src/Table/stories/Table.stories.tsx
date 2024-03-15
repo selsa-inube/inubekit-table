@@ -5,9 +5,9 @@ import { Blanket } from "@inubekit/blanket";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
 
-import { titlesMuck, actionsMuck, breakPointsMuck } from "./mucks";
+import { titlesMock, actionsMock, breakPointsMock } from "./mocks";
 import { props, parameters } from "../props";
-import { Table, ITableProps } from "..";
+import { Table, ITable } from "..";
 import { StyledModal } from "./styles";
 
 const story = {
@@ -46,11 +46,11 @@ const LoremModal = () => {
   );
 };
 
-export const Default = (args: ITableProps) => <Table {...args} />;
+const Default = (args: ITable) => <Table {...args} />;
 Default.args = {
   id: "tableId",
-  titles: titlesMuck,
-  actions: actionsMuck,
+  titles: titlesMock,
+  actions: actionsMock,
   entries: [
     {
       id: "11",
@@ -83,10 +83,11 @@ Default.args = {
   ],
   filter: "",
   pageLength: 10,
-  breakpoints: breakPointsMuck,
+  breakpoints: breakPointsMock,
   modalTitle: "Form",
   infoTitle: "Information",
   content: <LoremModal />,
 };
 
+export { Default };
 export default story;

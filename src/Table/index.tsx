@@ -5,29 +5,29 @@ import { Pagination } from "./Pagination";
 import { TableUI } from "./interface";
 import { StyledContainer } from "./styles";
 
-export interface IActions {
+interface IActions {
   id: string;
   [key: string]: string;
 }
 
-export interface ITitle {
+interface ITitle {
   id: string;
   titleName: string;
   priority: number;
 }
 
-export interface IAction {
+interface IAction {
   id: string;
   actionName: string;
   content: (entry: IActions) => JSX.Element;
 }
 
-export interface IBreakpoint {
+interface IBreakpoint {
   breakpoint: string;
   totalColumns: number;
 }
 
-export interface ITableUIProps {
+interface ITableUI {
   titles: ITitle[];
   actions: IAction[];
   entries: IActions[];
@@ -37,7 +37,7 @@ export interface ITableUIProps {
   actionsTitle: string;
 }
 
-export interface ITableProps {
+interface ITable {
   id: string;
   titles: ITitle[];
   actions: IAction[];
@@ -49,7 +49,7 @@ export interface ITableProps {
   infoTitle?: string;
 }
 
-export const Table = (props: ITableProps) => {
+const Table = (props: ITable) => {
   const {
     id,
     titles,
@@ -142,3 +142,6 @@ export const Table = (props: ITableProps) => {
     </StyledContainer>
   );
 };
+
+export { Table };
+export type { IActions, IAction, IBreakpoint, ITable, ITableUI, ITitle };

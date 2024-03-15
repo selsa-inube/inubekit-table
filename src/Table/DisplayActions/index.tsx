@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { MdOpenInNew } from "react-icons/md";
-import { ITableProps } from "..";
+import { ITable } from "..";
 
-export const DisplayActions = ({ content }: Pick<ITableProps, "content">) => {
+const DisplayActions = ({ content }: Pick<ITable, "content">) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
@@ -16,3 +16,5 @@ export const DisplayActions = ({ content }: Pick<ITableProps, "content">) => {
     </>
   );
 };
+
+export { DisplayActions };

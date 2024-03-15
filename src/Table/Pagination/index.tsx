@@ -9,7 +9,7 @@ import { Text } from "@inubekit/text";
 import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
 
-export interface IPaginationProps {
+interface IPagination {
   firstEntryInPage: number;
   lastEntryInPage: number;
   totalRecords: number;
@@ -19,7 +19,7 @@ export interface IPaginationProps {
   handleEndPage: () => void;
 }
 
-export const Pagination = (props: IPaginationProps) => {
+const Pagination = (props: IPagination) => {
   const {
     firstEntryInPage,
     lastEntryInPage,
@@ -76,3 +76,6 @@ export const Pagination = (props: IPaginationProps) => {
     </Stack>
   );
 };
+
+export { Pagination };
+export type { IPagination };

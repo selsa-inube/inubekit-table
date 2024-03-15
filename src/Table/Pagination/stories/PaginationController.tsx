@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Pagination } from "../index";
-import { ITableProps } from "../..";
+import { ITable } from "../..";
 
-export const PaginationController = (props: ITableProps) => {
+const PaginationController = (props: ITable) => {
   const { entries, pageLength = 10 } = props;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -47,3 +47,5 @@ export const PaginationController = (props: ITableProps) => {
     />
   );
 };
+
+export { PaginationController };
