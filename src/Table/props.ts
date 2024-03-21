@@ -1,18 +1,18 @@
-import { IActions } from ".";
+import { ITableIActions } from ".";
 
-interface ITitle {
+interface ITableITitle {
   id: string;
   titleName: string;
   priority: number;
 }
 
-interface IAction {
+interface ITableIAction {
   id: string;
   actionName: string;
-  content: (entry: IActions) => JSX.Element;
+  content: (entry: ITableIActions) => JSX.Element;
 }
 
-interface IBreakpoint {
+interface ITableIBreakpoint {
   breakpoint: string;
   totalColumns: number;
 }
@@ -104,4 +104,4 @@ const props = {
 };
 
 export { props, parameters };
-export type { ITitle, IAction, IBreakpoint };
+export type { ITableITitle, ITableIAction, ITableIBreakpoint };

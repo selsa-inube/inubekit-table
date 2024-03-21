@@ -5,33 +5,33 @@ import { Pagination } from "./Pagination";
 import { TableUI } from "./interface";
 import { StyledContainer } from "./styles";
 
-interface IActions {
+interface ITableIActions {
   id: string;
   [key: string]: string;
 }
 
-interface ITitle {
+interface ITableITitle {
   id: string;
   titleName: string;
   priority: number;
 }
 
-interface IAction {
+interface ITableIAction {
   id: string;
   actionName: string;
-  content: (entry: IActions) => JSX.Element;
+  content: (entry: ITableIActions) => JSX.Element;
 }
 
-interface IBreakpoint {
+interface ITableIBreakpoint {
   breakpoint: string;
   totalColumns: number;
 }
 
-interface ITableUI {
-  titles: ITitle[];
-  actions: IAction[];
-  entries: IActions[];
-  breakpoints: IBreakpoint[];
+interface ITableITableUI {
+  titles: ITableITitle[];
+  actions: ITableIAction[];
+  entries: ITableIActions[];
+  breakpoints: ITableIBreakpoint[];
   content?: React.ReactElement;
   infoTitle: string;
   actionsTitle: string;
@@ -39,12 +39,12 @@ interface ITableUI {
 
 interface ITable {
   id: string;
-  titles: ITitle[];
-  actions: IAction[];
-  entries: IActions[];
+  titles: ITableITitle[];
+  actions: ITableIAction[];
+  entries: ITableIActions[];
   filter?: string;
   pageLength?: number;
-  breakpoints?: IBreakpoint[];
+  breakpoints?: ITableIBreakpoint[];
   content?: React.ReactElement;
   infoTitle?: string;
 }
@@ -88,7 +88,7 @@ const Table = (props: ITable) => {
 
   const lastEntryInPage = Math.min(
     firstEntryInPage + pageLength,
-    filteredEntries.length,
+    filteredEntries.length
   );
 
   function getPageEntries() {
@@ -144,4 +144,11 @@ const Table = (props: ITable) => {
 };
 
 export { Table };
-export type { IActions, IAction, IBreakpoint, ITable, ITableUI, ITitle };
+export type {
+  ITableIActions,
+  ITableIAction,
+  ITableIBreakpoint,
+  ITable,
+  ITableITableUI,
+  ITableITitle,
+};
