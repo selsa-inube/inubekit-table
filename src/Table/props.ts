@@ -1,4 +1,4 @@
-import { ITableIActions } from ".";
+import { ITableActions } from ".";
 
 interface ITableITitle {
   id: string;
@@ -9,7 +9,7 @@ interface ITableITitle {
 interface ITableIAction {
   id: string;
   actionName: string;
-  content: (entry: ITableIActions) => JSX.Element;
+  content: (entry: ITableActions) => JSX.Element;
 }
 
 interface ITableIBreakpoint {
