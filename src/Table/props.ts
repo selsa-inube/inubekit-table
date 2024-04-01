@@ -1,12 +1,15 @@
-import { ITableActions } from ".";
+interface ITableActions {
+  id: string;
+  [key: string]: string;
+}
 
-interface ITableITitle {
+interface ITableTitle {
   id: string;
   titleName: string;
   priority: number;
 }
 
-interface ITableIAction {
+interface ITableAction {
   id: string;
   actionName: string;
   content: (entry: ITableActions) => JSX.Element;
@@ -15,6 +18,16 @@ interface ITableIAction {
 interface ITableIBreakpoint {
   breakpoint: string;
   totalColumns: number;
+}
+
+interface ITableUI {
+  titles: ITableTitle[];
+  actions: ITableAction[];
+  entries: ITableActions[];
+  breakpoints: ITableIBreakpoint[];
+  content?: React.ReactElement;
+  infoTitle: string;
+  actionsTitle: string;
 }
 
 const parameters = {
@@ -104,4 +117,10 @@ const props = {
 };
 
 export { props, parameters };
-export type { ITableITitle, ITableIAction, ITableIBreakpoint };
+export type {
+  ITableActions,
+  ITableTitle,
+  ITableAction,
+  ITableIBreakpoint,
+  ITableUI,
+};

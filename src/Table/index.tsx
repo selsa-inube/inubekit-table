@@ -5,37 +5,13 @@ import { Pagination } from "./Pagination";
 import { TableUI } from "./interface";
 import { StyledContainer } from "./styles";
 
-interface ITableActions {
-  id: string;
-  [key: string]: string;
-}
-
-interface ITableTitle {
-  id: string;
-  titleName: string;
-  priority: number;
-}
-
-interface ITableAction {
-  id: string;
-  actionName: string;
-  content: (entry: ITableActions) => JSX.Element;
-}
-
-interface ITableIBreakpoint {
-  breakpoint: string;
-  totalColumns: number;
-}
-
-interface ITableUI {
-  titles: ITableTitle[];
-  actions: ITableAction[];
-  entries: ITableActions[];
-  breakpoints: ITableIBreakpoint[];
-  content?: React.ReactElement;
-  infoTitle: string;
-  actionsTitle: string;
-}
+import {
+  ITableActions,
+  ITableTitle,
+  ITableAction,
+  ITableIBreakpoint,
+  ITableUI,
+} from "./props";
 
 interface ITable {
   id: string;
