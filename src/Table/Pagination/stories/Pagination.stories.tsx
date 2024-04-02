@@ -1,6 +1,3 @@
-import { ThemeProvider } from "styled-components";
-import { presente } from "@inubekit/foundations";
-
 import { PaginationController } from "./PaginationController";
 import { Pagination } from "..";
 import { props, parameters } from "../../props";
@@ -22,17 +19,5 @@ Default.args = {
   pageLength: 5,
 };
 
-const theme = structuredClone(presente);
-
-const Themed = (args: ITable) => (
-  <ThemeProvider theme={theme}>
-    <Default {...args} />
-  </ThemeProvider>
-);
-
-Themed.args = {
-  ...Default.args,
-};
-
-export { Themed, Default };
+export { Default };
 export default story;

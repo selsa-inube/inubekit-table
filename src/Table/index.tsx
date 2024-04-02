@@ -4,22 +4,16 @@ import { Stack } from "@inubekit/stack";
 import { Pagination } from "./Pagination";
 import { TableUI } from "./interface";
 import { StyledContainer } from "./styles";
-
-import {
-  ITableActions,
-  ITableTitle,
-  ITableAction,
-  ITableIBreakpoint,
-} from "./props";
+import { IAction, IActions, IBreakpoint, ITitle } from "./props";
 
 interface ITable {
   id: string;
-  titles: ITableTitle[];
-  actions: ITableAction[];
-  entries: ITableActions[];
+  titles: ITitle[];
+  actions: IAction[];
+  entries: IActions[];
   filter?: string;
   pageLength?: number;
-  breakpoints?: ITableIBreakpoint[];
+  breakpoints?: IBreakpoint[];
   content?: React.ReactElement;
   infoTitle?: string;
 }
@@ -63,7 +57,7 @@ const Table = (props: ITable) => {
 
   const lastEntryInPage = Math.min(
     firstEntryInPage + pageLength,
-    filteredEntries.length
+    filteredEntries.length,
   );
 
   function getPageEntries() {

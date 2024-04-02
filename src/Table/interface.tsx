@@ -14,7 +14,8 @@ import {
   StyledThTitle,
   StyledTd,
 } from "./styles";
-import { ITable, IAction, IActions, IBreakpoint, ITitle } from ".";
+import { ITable } from ".";
+import { IAction, IActions, IBreakpoint, ITitle } from "./props";
 
 function findCurrentMediaQuery(currentMediaQuery: { [key: string]: boolean }) {
   const lastIndexMedia = Object.values(currentMediaQuery).lastIndexOf(true);

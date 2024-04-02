@@ -1,9 +1,9 @@
 export { Table } from "./Table";
 export type { ITable } from "./Table";
 export type {
-  ITableActions,
-  ITableAction,
-  ITableIBreakpoint,
+  IActions,
+  IAction,
+  IBreakpoint,
   ITableUI,
-  ITableTitle,
+  ITitle,
 } from "./Table/props";
