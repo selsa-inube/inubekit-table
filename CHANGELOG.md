@@ -1,3 +1,33 @@
+# v1.1.0 (Tue Apr 02 2024)
+
+#### 🚀 Enhancement
+
+- Adjust and export interfaces [#4](https://github.com/selsa-inube/inubekit-table/pull/4) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- Implement try..catch in props of type function [#2](https://github.com/selsa-inube/inubekit-table/pull/2) ([@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Add auto publish [#5](https://github.com/selsa-inube/inubekit-table/pull/5) ([@cmarin001](https://github.com/cmarin001))
+- Adjust publish `<Tabele />`inubekit repo [#1](https://github.com/selsa-inube/inubekit-table/pull/1) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### ⚠️ Pushed to `main`
+
+- fix: change the Interaces names ([@cmarin001](https://github.com/cmarin001))
+- fix: update auto-release ([@cmarin001](https://github.com/cmarin001))
+- fix: update package.json ([@cmarin001](https://github.com/cmarin001))
+
+#### 🔩 Dependency Updates
+
+- Update inubekit/table to storybook v8 [#3](https://github.com/selsa-inube/inubekit-table/pull/3) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 3
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
 # v0.0.2 (Mon Feb 12 2024)
 
 #### ⚠️ Pushed to `main`
