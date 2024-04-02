@@ -1,20 +1,33 @@
-import { IActions } from ".";
+interface ITableActions {
+  id: string;
+  [key: string]: string;
+}
 
-interface ITitle {
+interface ITableTitle {
   id: string;
   titleName: string;
   priority: number;
 }
 
-interface IAction {
+interface ITableAction {
   id: string;
   actionName: string;
-  content: (entry: IActions) => JSX.Element;
+  content: (entry: ITableActions) => JSX.Element;
 }
 
-interface IBreakpoint {
+interface ITableIBreakpoint {
   breakpoint: string;
   totalColumns: number;
+}
+
+interface ITableUI {
+  titles: ITableTitle[];
+  actions: ITableAction[];
+  entries: ITableActions[];
+  breakpoints: ITableIBreakpoint[];
+  content?: React.ReactElement;
+  infoTitle: string;
+  actionsTitle: string;
 }
 
 const parameters = {
@@ -104,4 +117,10 @@ const props = {
 };
 
 export { props, parameters };
-export type { ITitle, IAction, IBreakpoint };
+export type {
+  ITableActions,
+  ITableTitle,
+  ITableAction,
+  ITableIBreakpoint,
+  ITableUI,
+};
