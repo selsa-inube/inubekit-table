@@ -10,7 +10,6 @@ import {
   ITableTitle,
   ITableAction,
   ITableIBreakpoint,
-  ITableUI,
 } from "./props";
 
 interface ITable {
@@ -120,11 +119,4 @@ const Table = (props: ITable) => {
 };
 
 export { Table };
-export type {
-  ITableActions,
-  ITableAction,
-  ITableIBreakpoint,
-  ITable,
-  ITableUI,
-  ITableTitle,
-};
+export type { ITable };
