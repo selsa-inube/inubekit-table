@@ -1,3 +1,15 @@
+# v1.4.0 (Wed May 01 2024)
+
+#### 🚀 Enhancement
+
+- Update workflow in order to avoid merges with failed builds [#6](https://github.com/selsa-inube/inubekit-table/pull/6) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.1.0 (Tue Apr 02 2024)
 
 #### 🚀 Enhancement
