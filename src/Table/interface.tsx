@@ -13,7 +13,7 @@ import {
   StyledThAction,
   StyledThTitle,
   StyledTd,
-} from "./styles";
+} from "./styles1";
 import { ITable } from ".";
 import { IAction, IActions, IBreakpoint, ITitle } from "./props";
 
