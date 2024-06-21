@@ -3,7 +3,7 @@ import { Stack } from "@inubekit/stack";
 
 import { Pagination } from "./Pagination";
 import { TableUI } from "./interface";
-import { StyledContainer } from "./styles";
+import { StyledContainer } from "./styles1";
 import { IAction, IActions, IBreakpoint, ITitle } from "./props";
 
 interface ITable {

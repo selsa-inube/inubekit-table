@@ -1,11 +1,13 @@
 import React from "react";
+import { StyledTr } from "./styles";
 
-interface TrProps extends React.HTMLAttributes<HTMLTableRowElement> {
+interface ITr extends React.HTMLAttributes<HTMLTableRowElement> {
   children: React.ReactNode;
 }
 
-const Tr = ({ children, ...props }: TrProps) => {
-  return <tr {...props}>{children}</tr>;
+const Tr = ({ children, ...props }: ITr) => {
+  return <StyledTr {...props}>{children}</StyledTr>;
 };
 
 export { Tr };
+export type { ITr };

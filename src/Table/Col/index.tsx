@@ -1,9 +1,11 @@
 import React from "react";
+import { StyledCol } from "./styles";
 
-interface ColProps extends React.ColHTMLAttributes<HTMLTableColElement> {}
+interface ICol extends React.ColHTMLAttributes<HTMLTableColElement> {}
 
-const Col = (props: ColProps) => {
-  return <col {...props} />;
+const Col = (props: ICol) => {
+  return <StyledCol {...props} />;
 };
 
 export { Col };
+export type { ICol };

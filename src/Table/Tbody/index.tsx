@@ -1,11 +1,13 @@
 import React from "react";
+import { StyledTbody } from "./styles";
 
-interface TbodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {
+interface ITbody extends React.HTMLAttributes<HTMLTableSectionElement> {
   children: React.ReactNode;
 }
 
-const Tbody = ({ children, ...props }: TbodyProps) => {
-  return <tbody {...props}>{children}</tbody>;
+const Tbody = ({ children, ...props }: ITbody) => {
+  return <StyledTbody {...props}>{children}</StyledTbody>;
 };
 
 export { Tbody };
+export type { ITbody };

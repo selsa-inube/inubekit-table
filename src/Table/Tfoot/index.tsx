@@ -1,11 +1,13 @@
 import React from "react";
+import { StyledTfoot } from "./styles";
 
-interface TfootProps extends React.HTMLAttributes<HTMLTableSectionElement> {
+interface ITfoot extends React.HTMLAttributes<HTMLTableSectionElement> {
   children: React.ReactNode;
 }
 
-const Tfoot = ({ children, ...props }: TfootProps) => {
-  return <tfoot {...props}>{children}</tfoot>;
+const Tfoot = ({ children, ...props }: ITfoot) => {
+  return <StyledTfoot {...props}>{children}</StyledTfoot>;
 };
 
 export { Tfoot };
+export type { ITfoot };

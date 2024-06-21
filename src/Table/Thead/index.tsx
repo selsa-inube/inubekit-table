@@ -1,16 +1,18 @@
 import React from "react";
 import { Tr } from "../Tr";
+import { StyledThead } from "./styles";
 
-interface TheadProps extends React.HTMLAttributes<HTMLTableSectionElement> {
+interface IThead extends React.HTMLAttributes<HTMLTableSectionElement> {
   children: React.ReactNode;
 }
 
-const Thead = ({ children, ...props }: TheadProps) => {
+const Thead = ({ children, ...props }: IThead) => {
   return (
-    <thead {...props}>
+    <StyledThead {...props}>
       <Tr>{children}</Tr>
-    </thead>
+    </StyledThead>
   );
 };
 
 export { Thead };
+export type { IThead };
