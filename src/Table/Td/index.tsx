@@ -11,7 +11,7 @@ interface ITd extends React.TdHTMLAttributes<HTMLTableCellElement> {
   checked?: boolean;
   children: React.ReactNode;
   id?: string;
-  label: string;
+  label?: string;
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLTableCellElement>) => void;
   type?: ITdType;
