@@ -2,7 +2,7 @@ import { ITh, Th } from "..";
 import { parameters, props } from "../props";
 
 const story = {
-  title: "components/Table/Th",
+  title: "data/Table/Th",
   component: Th,
   parameters,
   argTypes: props,

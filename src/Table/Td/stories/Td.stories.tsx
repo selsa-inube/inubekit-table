@@ -3,7 +3,7 @@ import { parameters, props } from "../props";
 import { TdController } from "./TdController";
 
 const story = {
-  title: "components/Table/Td",
+  title: "data/Table/Td",
   component: Td,
   parameters,
   argTypes: props,

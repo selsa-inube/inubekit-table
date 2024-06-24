@@ -10,7 +10,7 @@ interface ITh extends React.ThHTMLAttributes<HTMLTableCellElement> {
 }
 
 const Th = (props: ITh) => {
-  const { action = false, align, children, ...restProps } = props;
+  const { action = false, align = "center", children, ...restProps } = props;
 
   return (
     <StyledTh $align={align} $action={action} {...restProps}>

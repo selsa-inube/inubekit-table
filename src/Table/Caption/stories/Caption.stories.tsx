@@ -1,13 +1,13 @@
 import { Caption, ICaption } from "..";
 
 const story = {
-  title: "components/Table/Caption",
+  title: "data/Table/Caption",
   component: Caption,
 };
 
 const Default = (args: ICaption) => <Caption {...args} />;
 Default.args = {
-  children: "Table Caption",
+  children: "Caption text",
 };
 
 export { Default };
