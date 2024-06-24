@@ -5,8 +5,10 @@ interface IColgroup extends React.ColgroupHTMLAttributes<HTMLTableColElement> {
   children: React.ReactNode;
 }
 
-const Colgroup = ({ children, ...props }: IColgroup) => {
-  return <StyledColGroup {...props}>{children}</StyledColGroup>;
+const Colgroup = (props: IColgroup) => {
+  const { children, ...restProps } = props;
+
+  return <StyledColGroup {...restProps}>{children}</StyledColGroup>;
 };
 
 export { Colgroup };

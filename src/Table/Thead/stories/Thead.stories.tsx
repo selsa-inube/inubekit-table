@@ -1,19 +1,22 @@
+import { Th } from "../../Th";
 import { IThead, Thead } from "..";
+import { Tr } from "../../Tr";
 
 const story = {
-  title: "components/Table/Thead",
+  title: "data/Table/Thead",
   component: Thead,
 };
 
 const Default = (args: IThead) => <Thead {...args} />;
 Default.args = {
   children: (
-    <>
-      <Thead>Header 1</Thead>
-      <Thead>Header 2</Thead>
-      <Thead>Header 3</Thead>
-    </>
+    <Tr>
+      <Th>Header 1</Th>
+      <Th>Header 2</Th>
+      <Th>Header 3</Th>
+    </Tr>
   ),
 };
 
 export default story;
+export { Default };

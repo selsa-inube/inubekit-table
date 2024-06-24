@@ -1,12 +1,19 @@
 import React from "react";
 import { StyledCaption } from "./styles";
+import { Text } from "@inubekit/text";
 
 interface ICaption extends React.HTMLAttributes<HTMLTableCaptionElement> {
   children: React.ReactNode;
 }
 
-const Caption = ({ children, ...props }: ICaption) => {
-  return <StyledCaption {...props}>{children}</StyledCaption>;
+const Caption = (props: ICaption) => {
+  const { children, ...restProps } = props;
+
+  return (
+    <StyledCaption {...restProps}>
+      <Text appearance="gray" children={children} size="large" type="label" />
+    </StyledCaption>
+  );
 };
 
 export { Caption };
