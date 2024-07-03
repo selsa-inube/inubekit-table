@@ -1,3 +1,15 @@
+# v4.0.0 (Wed Jul 03 2024)
+
+#### 💥 Breaking Change
+
+- Create and export Table component [#9](https://github.com/selsa-inube/inubekit-table/pull/9) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.0.0 (Mon Jun 24 2024)
 
 #### 💥 Breaking Change
