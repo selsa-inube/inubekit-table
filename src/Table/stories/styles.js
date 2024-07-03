@@ -9,7 +9,6 @@ const StyledContainerActions = styled.div`
   }
 
   & :hover {
-    color: ${inube.color.stroke.gray.hover};
   }
 `;
 

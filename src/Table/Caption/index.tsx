@@ -11,7 +11,13 @@ const Caption = (props: ICaption) => {
 
   return (
     <StyledCaption {...restProps}>
-      <Text appearance="gray" children={children} size="large" type="label" />
+      <Text
+        appearance="gray"
+        children={children}
+        size="large"
+        type="label"
+        textAlign="center"
+      />
     </StyledCaption>
   );
 };

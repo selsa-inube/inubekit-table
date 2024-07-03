@@ -4,7 +4,6 @@ import {
   MdFirstPage,
   MdLastPage,
 } from "react-icons/md";
-
 import { Text } from "@inubekit/text";
 import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
@@ -32,43 +31,37 @@ const Pagination = (props: IPagination) => {
 
   return (
     <Stack justifyContent="flex-end" alignItems="center">
-      <Text
-        type="body"
-        size="small"
-        padding="16px 0px"
-        appearance="dark"
-        textAlign="start"
-      >
+      <Text type="body" size="small" appearance="dark" textAlign="start">
         {firstEntryInPage + 1} - {lastEntryInPage} of {totalRecords}
       </Text>
 
       <Stack
         alignItems="center"
-        padding="s0 s300"
-        margin="s0 s0 s0 s200"
+        padding="0px 24px"
+        margin="0px 0px 0px 16px"
         gap="8px"
       >
         <Icon
           cursorHover={true}
-          appearance={"dark"}
+          appearance="dark"
           icon={<MdFirstPage />}
           onClick={handleStartPage}
         />
         <Icon
           cursorHover={true}
-          appearance={"dark"}
+          appearance="dark"
           icon={<MdNavigateBefore />}
           onClick={handlePrevPage}
         />
         <Icon
           cursorHover={true}
-          appearance={"dark"}
+          appearance="dark"
           icon={<MdNavigateNext />}
           onClick={handleNextPage}
         />
         <Icon
           cursorHover={true}
-          appearance={"dark"}
+          appearance="dark"
           icon={<MdLastPage />}
           onClick={handleEndPage}
         />

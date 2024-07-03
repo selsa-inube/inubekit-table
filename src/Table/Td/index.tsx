@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledTd } from "./styles";
+import { StyledTd, StyledToggleContainer } from "./styles";
 import { ITdAlignContent, ITdAppearance, ITdType } from "./props";
 import { Text } from "@inubekit/text";
 import { Toggle } from "@inubekit/toggle";
@@ -13,7 +13,7 @@ interface ITd extends React.TdHTMLAttributes<HTMLTableCellElement> {
   id?: string;
   label?: string;
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onClick?: (e: React.MouseEvent<HTMLTableCellElement>) => void;
+  onClick?: (event: React.MouseEvent) => void;
   type?: ITdType;
 }
 
@@ -24,26 +24,33 @@ const renderContent = (
   checked: boolean,
   appearance: ITdAppearance,
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => void,
+  onClick?: (event: React.MouseEvent) => void,
+  align?: ITdAlignContent,
 ) => {
   switch (type) {
     case "toggle":
       return (
-        <Toggle
-          id={id}
-          checked={checked}
-          onChange={onToggle!}
-          label=""
-          margin=""
-          padding=""
-        />
+        <StyledToggleContainer $align={align}>
+          <Toggle
+            id={id}
+            checked={checked}
+            onChange={onToggle!}
+            label=""
+            margin=""
+            padding=""
+          />
+        </StyledToggleContainer>
       );
     case "icon":
       return (
         <Icon
           appearance={appearance === "light" ? "dark" : appearance}
           icon={children}
+          onClick={onClick!}
         />
       );
+    case "custom":
+      return children;
     case "text":
     default:
       return (
@@ -74,7 +81,16 @@ const Td = (props: ITd) => {
       $appearance={appearance}
       onClick={onClick}
     >
-      {renderContent(id, type, children, checked, appearance, onToggle)}
+      {renderContent(
+        id,
+        type,
+        children,
+        checked,
+        appearance,
+        onToggle,
+        onClick,
+        align,
+      )}
     </StyledTd>
   );
 };

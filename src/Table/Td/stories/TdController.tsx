@@ -24,7 +24,7 @@ const TdController = (props: ITd) => {
     }
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLTableCellElement>) => {
+  const handleClick = (e: React.MouseEvent) => {
     if (type === "icon" && onClick) {
       onClick(e);
     }

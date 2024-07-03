@@ -1,114 +1,132 @@
-import { useMemo, useState } from "react";
-import { Stack } from "@inubekit/stack";
-
+import React, { useState } from "react";
+import { Caption } from "./Caption";
+import { Col } from "./Col";
+import { Colgroup } from "./Colgroup";
+import { IDataItem, ITableAlignContent } from "./props";
 import { Pagination } from "./Pagination";
-import { TableUI } from "./interface";
-import { StyledContainer } from "./styles1";
-import { IAction, IActions, IBreakpoint, ITitle } from "./props";
+import { StyledTable, StyledTableContainer } from "./styles";
+import { Tbody } from "./Tbody";
+import { Td } from "./Td";
+import { Tfoot } from "./Tfoot";
+import { Th } from "./Th";
+import { Thead } from "./Thead";
+import { Tr } from "./Tr";
 
 interface ITable {
-  id: string;
-  titles: ITitle[];
-  actions: IAction[];
-  entries: IActions[];
-  filter?: string;
-  pageLength?: number;
-  breakpoints?: IBreakpoint[];
-  content?: React.ReactElement;
-  infoTitle?: string;
+  align?: ITableAlignContent;
+  caption?: string;
+  columns: { span: number; style?: React.CSSProperties }[];
+  data: IDataItem[];
+  headers: { label: string; key: string; action?: boolean }[];
+  onClick?: (
+    rowIndex: number,
+    colIndex: number,
+    event: React.MouseEvent,
+  ) => void;
+  onToggle?: (
+    rowIndex: number,
+    colIndex: number,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => void;
+  pageLength: number;
 }
 
 const Table = (props: ITable) => {
   const {
-    id,
-    titles,
-    actions,
-    entries,
-    filter = "",
-    pageLength = 10,
-    breakpoints,
-    content,
-    infoTitle,
+    caption,
+    columns,
+    headers,
+    data,
+    pageLength,
+    align = "center",
+    onToggle,
+    onClick,
   } = props;
+  const [currentPage, setCurrentPage] = useState(0);
 
-  const filteredEntries = useMemo(() => {
-    const titlesId = titles.map((title) => title.id);
+  const totalRecords = data.length;
+  const totalPages = Math.ceil(totalRecords / pageLength);
 
-    return entries.filter((entry) => {
-      for (const attribute in entry) {
-        if (
-          titlesId.includes(attribute) &&
-          entry[attribute]
-            .toString()
-            .toLowerCase()
-            .includes(filter.toLowerCase())
-        ) {
-          return true;
-        }
-      }
-      return false;
-    });
-  }, [entries, filter, titles]);
+  const handleStartPage = () => setCurrentPage(0);
+  const handlePrevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 0));
+  const handleNextPage = () =>
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
+  const handleEndPage = () => setCurrentPage(totalPages - 1);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(filteredEntries.length / pageLength);
+  const firstEntryInPage = currentPage * pageLength;
+  const lastEntryInPage = Math.min(firstEntryInPage + pageLength, totalRecords);
 
-  const firstEntryInPage = (currentPage - 1) * pageLength;
-
-  const lastEntryInPage = Math.min(
-    firstEntryInPage + pageLength,
-    filteredEntries.length,
-  );
-
-  function getPageEntries() {
-    return filteredEntries.slice(firstEntryInPage, lastEntryInPage);
-  }
-
-  function goToFirstPage() {
-    setCurrentPage(1);
-  }
-
-  function goToEndPage() {
-    setCurrentPage(totalPages);
-  }
-
-  function nextPage() {
-    if (currentPage !== totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  }
-
-  function prevPage() {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  }
+  const currentData = data.slice(firstEntryInPage, lastEntryInPage);
 
   return (
-    <StyledContainer id={id}>
-      <Stack direction="column">
-        <TableUI
-          titles={titles}
-          actions={actions}
-          entries={getPageEntries()}
-          breakpoints={breakpoints!}
-          content={content}
-          infoTitle={infoTitle!}
-          pageLength={pageLength}
-        />
-        {filteredEntries.length > pageLength && (
-          <Pagination
-            firstEntryInPage={firstEntryInPage}
-            lastEntryInPage={lastEntryInPage}
-            totalRecords={filteredEntries.length}
-            handleStartPage={goToFirstPage}
-            handlePrevPage={prevPage}
-            handleNextPage={nextPage}
-            handleEndPage={goToEndPage}
-          />
-        )}
-      </Stack>
-    </StyledContainer>
+    <>
+      <StyledTableContainer>
+        <StyledTable>
+          <Colgroup>
+            {columns.map((col, index) => (
+              <Col key={index} span={col.span} style={col.style} />
+            ))}
+          </Colgroup>
+          <Thead>
+            <Tr border="bottom">
+              {headers.map((header, index) => (
+                <Th key={index} action={header.action} align={align}>
+                  {header.label}
+                </Th>
+              ))}
+            </Tr>
+          </Thead>
+          <Tbody>
+            {currentData.map((row, rowIndex) => (
+              <Tr key={rowIndex} border="bottom">
+                {headers.map((header, colIndex) => {
+                  const cellData = row[header.key];
+                  return (
+                    <Td
+                      key={colIndex}
+                      type={cellData?.type}
+                      checked={cellData?.checked}
+                      align={align}
+                      onToggle={
+                        cellData?.type === "toggle" && onToggle
+                          ? (e) => onToggle(rowIndex, colIndex, e)
+                          : undefined
+                      }
+                      onClick={
+                        (cellData?.type === "icon" ||
+                          cellData?.type === "custom") &&
+                        onClick
+                          ? (e: React.MouseEvent) =>
+                              onClick(rowIndex, colIndex, e)
+                          : undefined
+                      }
+                    >
+                      {cellData?.value}
+                    </Td>
+                  );
+                })}
+              </Tr>
+            ))}
+          </Tbody>
+          <Tfoot>
+            <Tr border="bottom">
+              <Td colSpan={headers.length} type="custom" align={align}>
+                <Pagination
+                  firstEntryInPage={firstEntryInPage}
+                  lastEntryInPage={lastEntryInPage}
+                  totalRecords={totalRecords}
+                  handleStartPage={handleStartPage}
+                  handlePrevPage={handlePrevPage}
+                  handleNextPage={handleNextPage}
+                  handleEndPage={handleEndPage}
+                />
+              </Td>
+            </Tr>
+          </Tfoot>
+        </StyledTable>
+      </StyledTableContainer>
+      {caption && <Caption>{caption}</Caption>}
+    </>
   );
 };
 

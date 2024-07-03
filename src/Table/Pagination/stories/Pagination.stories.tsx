@@ -1,22 +1,28 @@
-import { PaginationController } from "./PaginationController";
-import { Pagination } from "..";
-import { props, parameters } from "../../props";
-import { ITable } from "../..";
+import { IPagination, Pagination } from "..";
 
 const story = {
-  title: "data/Table/Pagination",
+  title: "data/Pagination",
   component: Pagination,
-  parameters,
-  argTypes: props,
+  argTypes: {
+    firstEntryInPage: { control: "number" },
+    lastEntryInPage: { control: "number" },
+    totalRecords: { control: "number" },
+    handleStartPage: { action: "startPage" },
+    handlePrevPage: { action: "prevPage" },
+    handleNextPage: { action: "nextPage" },
+    handleEndPage: { action: "endPage" },
+  },
 };
 
-const Default = (args: ITable) => <PaginationController {...args} />;
-
+const Default = (args: IPagination) => <Pagination {...args} />;
 Default.args = {
-  entries: [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ],
-  pageLength: 5,
+  firstEntryInPage: 0,
+  lastEntryInPage: 10,
+  totalRecords: 100,
+  handleStartPage: () => console.log("Start Page clicked"),
+  handlePrevPage: () => console.log("Prev Page clicked"),
+  handleNextPage: () => console.log("Next Page clicked"),
+  handleEndPage: () => console.log("End Page clicked"),
 };
 
 export { Default };

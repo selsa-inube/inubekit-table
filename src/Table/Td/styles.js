@@ -6,7 +6,7 @@ const StyledTd = styled.td`
     theme?.table?.cell?.background[$appearance] ||
     inube.table.cell.background[$appearance]};
   padding: 16px;
-  text-align: ${({ $align }) => $align || "center"};
+  text-align-last: ${({ $align }) => $align || "center"};
   & > p {
     color: ${({ theme, $appearance }) =>
       theme?.table?.cell?.color[$appearance] ||
@@ -14,4 +14,15 @@ const StyledTd = styled.td`
   }
 `;
 
-export { StyledTd };
+const StyledToggleContainer = styled.div`
+  & > div {
+    justify-content: ${({ $align }) =>
+      $align === "right"
+        ? "flex-end"
+        : $align === "left"
+          ? "flex-start"
+          : "center"};
+  }
+`;
+
+export { StyledTd, StyledToggleContainer };

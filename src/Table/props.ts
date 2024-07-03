@@ -1,34 +1,18 @@
-interface IActions {
-  id: string;
-  [key: string]: string;
+interface IDataItem {
+  [key: string]: {
+    value: React.ReactNode;
+    type?: IActionType;
+    checked?: boolean;
+    onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onClick?: (e: React.MouseEvent<HTMLTableCellElement>) => void;
+  };
 }
 
-interface ITitle {
-  id: string;
-  titleName: string;
-  priority: number;
-}
+const actionType = ["text", "toggle", "icon", "custom"] as const;
+type IActionType = (typeof actionType)[number];
 
-interface IAction {
-  id: string;
-  actionName: string;
-  content: (entry: IActions) => JSX.Element;
-}
-
-interface IBreakpoint {
-  breakpoint: string;
-  totalColumns: number;
-}
-
-interface ITableUI {
-  titles: ITitle[];
-  actions: IAction[];
-  entries: IActions[];
-  breakpoints: IBreakpoint[];
-  content?: React.ReactElement;
-  infoTitle: string;
-  actionsTitle: string;
-}
+const alignContent = ["center", "left", "right"] as const;
+type ITableAlignContent = (typeof alignContent)[number];
 
 const parameters = {
   docs: {
@@ -40,81 +24,43 @@ const parameters = {
 };
 
 const props = {
-  id: {
-    description: "uniquely identifies the **Table Component**.",
+  caption: {
+    description: "A string to set the caption of the table.",
+    control: { type: "text" },
   },
-  titles: {
+  columns: {
     description:
-      "(Array[objects]): shall be designed to accept an array of objects with a predetermined structure and it’ll be the titles for the table, as specified below: Each object shall contain the following attributes (keys):",
-    id: {
-      description:
-        "(string), shall serve as a unique identifier for each title, thereby enabling individual distinction and identification",
-    },
-    titleName: {
-      description:
-        "(string), shall serve as a text that will be displayed in the top of the table",
-    },
-    priority: {
-      description: "(number)shall serve as an identifier of priority and order",
-    },
+      "(Array[objects]): Defines the columns of the table, each object contains the span and optional styles.",
+    control: { type: "object" },
   },
-  actions: {
+  headers: {
     description:
-      "(Array[objects]): shall be designed to accept an array of objects with a predetermined structure and it’ll be the actions for the table, as specified below: Each object shall contain the following attributes",
-    id: {
-      description:
-        "(string), shall serve as a unique identifier for each action, thereby enabling individual distinction and identification",
-    },
-    actionName: {
-      description: "shall serve as a text that will be displayed in the action",
-    },
-    content: {
-      description:
-        "(string), shall be the nest component that will be used as icon for the action",
-    },
-    type: {
-      description:
-        "(string),shall determine the type of token that it will be used",
-    },
-  },
-  entries: {
-    description:
-      "(Array[objects]): shall be designed to accept an array of objects with a predetermined structure and it'll be the entries for the table, as specified below: Each object shall contain the following attributes",
-    titlesid: {
-      description: "shall serve as identifier of the content of the table",
-    },
-  },
-  breakpoints: {
-    description:
-      "(Array[objects]): shall be designed to accept an array of objects with a predetermined structure and it'll be the breakPoints used for the table's responsive, as specified below: Each object shall contain the following attributes",
-
-    breakpoint: {
-      description:
-        "The width specified shall determine the extent to which the hook modifies the columns that are to be displayed on the table.",
-    },
-
-    totalColumns: {
-      description:
-        "The total number of columns to be displayed on the table shall be specified.",
-    },
-  },
-  filter: {
-    description:
-      "(string), shall be the filter that can be applied to the table",
+      "(Array[objects]): Defines the headers of the table, each object contains the label, key, and optional action.",
+    control: { type: "object" },
   },
   pageLength: {
+    description: "(number): The number of entries to display per page.",
+    control: { type: "number" },
+  },
+  align: {
     description:
-      "(number), shall be the number of the entries that will be displayed on the table",
+      "(string): Alignment of content in the table cells. Can be 'center', 'left', or 'right'.",
+    control: { type: "select", options: ["center", "left", "right"] },
   },
-  infoTitle: {
-    control: { type: "text" },
-    description: "custom title for information that displays in modal",
+  data: {
+    description: "(Array[objects]): The data to display in the table.",
+    control: { type: "object" },
   },
-  actionsTitle: {
-    control: { type: "text" },
-    description: "custom title for actions that displays in modal",
+  onToggle: {
+    description:
+      "(function): Callback function when a toggle action is performed.",
+    action: "onToggle",
+  },
+  onClick: {
+    description: "(function): Callback function when a cell is clicked.",
+    action: "onClick",
   },
 };
 
-export { props, parameters };
-export type { IActions, ITitle, IAction, IBreakpoint, ITableUI };
+export { parameters, props };
+export type { IActionType, ITableAlignContent, IDataItem };
