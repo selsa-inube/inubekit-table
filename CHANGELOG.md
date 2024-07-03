@@ -1,3 +1,15 @@
+# v3.0.0 (Mon Jun 24 2024)
+
+#### 💥 Breaking Change
+
+- Added table-pieces like tbody,thead,caption,col,colgroup [#8](https://github.com/selsa-inube/inubekit-table/pull/8) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.0.0 (Fri Jun 21 2024)
 
 #### 💥 Breaking Change
@@ -48,7 +60,7 @@
 
 - Andres ([@Andresbl123](https://github.com/Andresbl123))
 - Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
-- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- Januar Asprilla ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
 
 ---
 
