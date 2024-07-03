@@ -5,10 +5,10 @@ import { Blanket } from "@inubekit/blanket";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
 
-import { props, parameters } from "../props";
+import { props, parameters, IDataItem } from "../props";
 
 import { StyledModal } from "./styles";
-import { ITableProps, Table, IDataItem } from "..";
+import { ITable, Table } from "..";
 
 const story = {
   title: "data/Table",
@@ -82,7 +82,7 @@ const generateData = (
   return data;
 };
 
-const Default = (args: ITableProps) => {
+const Default = (args: ITable) => {
   const [data, setData] = useState<IDataItem[]>([]);
 
   const handleToggle = useCallback(

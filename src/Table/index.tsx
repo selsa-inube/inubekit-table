@@ -12,7 +12,7 @@ import { Th } from "./Th";
 import { Thead } from "./Thead";
 import { Tr } from "./Tr";
 
-interface ITableProps {
+interface ITable {
   align?: ITableAlignContent;
   caption?: string;
   columns: { span: number; style?: React.CSSProperties }[];
@@ -31,7 +31,7 @@ interface ITableProps {
   pageLength: number;
 }
 
-const Table = (props: ITableProps) => {
+const Table = (props: ITable) => {
   const {
     caption,
     columns,
@@ -131,4 +131,4 @@ const Table = (props: ITableProps) => {
 };
 
 export { Table };
-export type { ITableProps, IDataItem };
+export type { ITable };

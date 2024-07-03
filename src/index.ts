@@ -9,13 +9,7 @@ export { Tfoot } from "./Table/Tfoot";
 export { Th } from "./Table/Th";
 export { Thead } from "./Table/Thead";
 export { Tr } from "./Table/Tr";
-export type {
-  IActions,
-  IAction,
-  IBreakpoint,
-  ITableUI,
-  ITitle,
-} from "./Table/props";
+
 export type { ICaption } from "./Table/Caption";
 export type { ICol } from "./Table/Col";
 export type { IColgroup } from "./Table/Colgroup";
@@ -27,3 +21,4 @@ export type { ITfoot } from "./Table/Tfoot";
 export type { ITh } from "./Table/Th";
 export type { IThead } from "./Table/Thead";
 export type { ITr } from "./Table/Tr";
+export type { IDataItem } from "./Table/props";
