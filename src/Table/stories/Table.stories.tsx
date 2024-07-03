@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { MdClose } from "react-icons/md";
+import React, { useState, useCallback, useEffect } from "react";
+import { MdClose, MdLaunch } from "react-icons/md";
 
 import { Blanket } from "@inubekit/blanket";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
 
-import { titlesMock, actionsMock, breakPointsMock } from "./mocks";
 import { props, parameters } from "../props";
-import { Table, ITable } from "..";
+
 import { StyledModal } from "./styles";
+import { ITableProps, Table, IDataItem } from "..";
 
 const story = {
   title: "data/Table",
-  component: [Table],
+  component: Table,
   parameters,
   argTypes: props,
 };
@@ -28,7 +28,7 @@ const LoremModal = () => {
         <Stack justifyContent="space-between">
           <Text
             as="h3"
-            appearance={"primary"}
+            appearance="primary"
             type="title"
             size="large"
             textAlign="start"
@@ -46,47 +46,101 @@ const LoremModal = () => {
   );
 };
 
-const Default = (args: ITable) => <Table {...args} />;
+const generateData = (
+  handleClick: (
+    rowIndex: number,
+    colIndex: number,
+    event: React.MouseEvent<HTMLTableCellElement>,
+  ) => void,
+  handleToggle: (
+    rowIndex: number,
+    colIndex: number,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => void,
+): IDataItem[] => {
+  const rows = 10;
+  const data: IDataItem[] = [];
+  for (let i = 0; i < rows; i++) {
+    data.push({
+      Data: { value: "Data" },
+      Data1: { value: "Data" },
+      Data2: { value: "Data" },
+      Data3: { value: "Data" },
+      Data4: {
+        value: <MdLaunch />,
+        type: i % 3 === 0 ? "icon" : "custom",
+        onClick: (e) => handleClick(i, 4, e),
+      },
+      Data5: {
+        value: "Data",
+        type: "toggle",
+        checked: i % 2 === 0,
+        onToggle: (e) => handleToggle(i, 5, e),
+      },
+    });
+  }
+  return data;
+};
+
+const Default = (args: ITableProps) => {
+  const [data, setData] = useState<IDataItem[]>([]);
+
+  const handleToggle = useCallback(
+    (
+      rowIndex: number,
+      colIndex: number,
+      event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
+      console.log(
+        `Toggle clicked at row ${rowIndex}, col ${colIndex}: ${event.target.checked}`,
+      );
+      setData((prevData) => {
+        const newData = [...prevData];
+        newData[rowIndex][args.headers[colIndex].key].checked =
+          event.target.checked;
+        return newData;
+      });
+    },
+    [args.headers],
+  );
+
+  const handleClick = useCallback(
+    (rowIndex: number, colIndex: number, event: React.MouseEvent) => {
+      console.log(`Cell clicked at row ${rowIndex}, col ${colIndex}`, event);
+    },
+    [],
+  );
+
+  useEffect(() => {
+    setData(generateData(handleClick, handleToggle));
+  }, [handleClick, handleToggle]);
+
+  return (
+    <Table
+      {...args}
+      data={data}
+      onToggle={handleToggle}
+      onClick={handleClick}
+    />
+  );
+};
+
 Default.args = {
-  id: "tableId",
-  titles: titlesMock,
-  actions: actionsMock,
-  entries: [
-    {
-      id: "11",
-      username: "David Leonardo Garzón",
-      code: "LGARZON",
-      userID: "1256545",
-      position: "Credit Analyst",
-    },
-    {
-      id: "12",
-      username: "Angie Pinilla",
-      code: "APINILLA",
-      userID: "789654",
-      position: "Adviser",
-    },
-    {
-      id: "13",
-      username: "Cristian Rojas",
-      code: "CROJAS",
-      userID: "258963",
-      position: "Credit Analyst",
-    },
-    {
-      id: "14",
-      username: "Johan Nova",
-      code: "JNOVA",
-      userID: "589647",
-      position: "Adviser",
-    },
+  caption: "Example Table",
+  columns: [{ span: 1 }, { span: 1 }, { span: 1 }],
+  headers: [
+    { label: "Data", key: "Data" },
+    { label: "Data1", key: "Data1" },
+    { label: "Data2", key: "Data2" },
+    { label: "Data3", key: "Data3" },
+    { label: "Data4", key: "Data4", action: true },
+    { label: "Data5", key: "Data5", action: true },
   ],
-  filter: "",
-  pageLength: 10,
-  breakpoints: breakPointsMock,
+  pageLength: 5,
   modalTitle: "Form",
   infoTitle: "Information",
   content: <LoremModal />,
+  align: "center",
 };
 
 export { Default };

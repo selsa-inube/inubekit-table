@@ -13,7 +13,7 @@ const appearances = [
 ] as const;
 type ITdAppearance = (typeof appearances)[number];
 
-const types = ["text", "toggle", "icon"] as const;
+const types = ["text", "toggle", "icon", "custom"] as const;
 type ITdType = (typeof types)[number];
 
 const parameters = {

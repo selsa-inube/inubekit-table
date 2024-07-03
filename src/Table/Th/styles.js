@@ -7,7 +7,7 @@ const StyledTh = styled.th`
       ? theme?.table?.action?.background || inube.table.action.background
       : theme?.table?.heading?.background || inube.table.heading.background};
   padding: 16px;
-  text-align: ${({ $align }) => $align};
+  text-align-last: ${({ $align }) => $align};
   & > p {
     color: ${({ theme }) =>
       theme?.table?.heading?.color || inube.table.heading.color};
