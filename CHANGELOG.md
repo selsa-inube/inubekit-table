@@ -1,3 +1,15 @@
+# v5.1.0 (Thu Jul 04 2024)
+
+#### 🚀 Enhancement
+
+- remove unnecessary code [#11](https://github.com/selsa-inube/inubekit-table/pull/11) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.0.0 (Thu Jul 04 2024)
 
 #### 💥 Breaking Change
