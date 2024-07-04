@@ -9,7 +9,6 @@ import { Tbody } from "../Tbody";
 import { Td } from "../Td";
 import { Tfoot } from "../Tfoot";
 import { Pagination } from "../Pagination";
-import { Caption } from "../Caption";
 import { MdLaunch } from "react-icons/md";
 
 interface IDataItem {
@@ -42,7 +41,6 @@ const TableController = (props: ITableControllerProps) => {
     { label: "Data5", key: "Data5", action: true },
   ];
   const pageLength = 5;
-  const caption = "Example Table";
 
   const generateData = () => {
     const rows = 10;
@@ -152,7 +150,6 @@ const TableController = (props: ITableControllerProps) => {
           </Td>
         </Tr>
       </Tfoot>
-      {caption && <Caption>{caption}</Caption>}
     </Table>
   );
 };
