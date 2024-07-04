@@ -2,7 +2,7 @@ import React from "react";
 import { StyledTable, StyledTableContainer } from "./styles";
 import { ITableBorderCollapse, ITableBorderStyle, ITableLayout } from "./props";
 
-interface ITableProps {
+interface ITable {
   tableLayout?: ITableLayout;
   borderCollapse?: ITableBorderCollapse;
   borderWidth?: string;
@@ -10,7 +10,7 @@ interface ITableProps {
   children: React.ReactNode;
 }
 
-const Table = (props: ITableProps) => {
+const Table = (props: ITable) => {
   const {
     tableLayout = "fixed",
     borderCollapse = "collapse",
@@ -29,4 +29,4 @@ const Table = (props: ITableProps) => {
 };
 
 export { Table };
-export type { ITableProps };
+export type { ITable };
