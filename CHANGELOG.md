@@ -1,3 +1,15 @@
+# v5.0.0 (Thu Jul 04 2024)
+
+#### 💥 Breaking Change
+
+- Create and Export Table Component with Customizable Props [#10](https://github.com/selsa-inube/inubekit-table/pull/10) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.0.0 (Wed Jul 03 2024)
 
 #### 💥 Breaking Change
