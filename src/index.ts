@@ -21,4 +21,3 @@ export type { ITfoot } from "./Table/Tfoot";
 export type { ITh } from "./Table/Th";
 export type { IThead } from "./Table/Thead";
 export type { ITr } from "./Table/Tr";
-export type { IDataItem } from "./Table/props";
