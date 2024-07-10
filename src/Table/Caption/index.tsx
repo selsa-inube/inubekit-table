@@ -16,6 +16,7 @@ const Caption = (props: ICaption) => {
         children={children}
         size="large"
         type="label"
+        weight="bold"
         textAlign="center"
       />
     </StyledCaption>

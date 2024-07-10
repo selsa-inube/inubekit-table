@@ -14,7 +14,7 @@ const Th = (props: ITh) => {
 
   return (
     <StyledTh $align={align} $action={action} {...restProps}>
-      <Text appearance="dark" type="label" size="medium">
+      <Text appearance="dark" type="label" size="medium" weight="bold">
         {children}
       </Text>
     </StyledTh>
