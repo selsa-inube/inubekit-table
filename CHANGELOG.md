@@ -1,3 +1,15 @@
+# v5.32.0 (Fri Sep 27 2024)
+
+#### 🚀 Enhancement
+
+- Move table tokens from foundations to component [#48](https://github.com/selsa-inube/inubekit-table/pull/48) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.31.0 (Wed Sep 25 2024)
 
 #### 🚀 Enhancement
