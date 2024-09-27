@@ -1,16 +1,15 @@
 import styled from "styled-components";
-import { inube } from "@inubekit/foundations";
+import { tokens } from "../Tokens/tokens";
 
 const StyledTd = styled.td`
   background-color: ${({ theme, $appearance }) =>
     theme?.table?.cell?.background[$appearance] ||
-    inube.table.cell.background[$appearance]};
+    tokens.cell.background[$appearance]};
   padding: 16px;
   text-align-last: ${({ $align }) => $align || "center"};
   & > p {
     color: ${({ theme, $appearance }) =>
-      theme?.table?.cell?.color[$appearance] ||
-      inube.table.cell.color[$appearance]};
+      theme?.table?.cell?.color[$appearance] || tokens.cell.color[$appearance]};
   }
 `;
 

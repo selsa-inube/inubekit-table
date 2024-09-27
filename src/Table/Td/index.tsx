@@ -31,14 +31,7 @@ const renderContent = (
     case "toggle":
       return (
         <StyledToggleContainer $align={align}>
-          <Toggle
-            id={id}
-            checked={checked}
-            onChange={onToggle!}
-            label=""
-            margin=""
-            padding=""
-          />
+          <Toggle id={id} checked={checked} onChange={onToggle!} />
         </StyledToggleContainer>
       );
     case "icon":

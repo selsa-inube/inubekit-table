@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { inube } from "@inubekit/foundations";
+import { tokens } from "./Tokens/tokens";
 
 const StyledTable = styled.table`
   border-collapse: ${({ $borderCollapse }) => $borderCollapse};
@@ -13,7 +13,7 @@ const StyledTable = styled.table`
 const StyledTableContainer = styled.div`
   border: ${({ $borderWidth, $borderStyle, theme }) =>
     `${$borderWidth} ${$borderStyle} ${
-      theme?.table?.border?.color || inube.table.border.color
+      theme?.table?.border?.color || tokens.border.color
     }`};
   border-radius: 8px;
   overflow: hidden;
