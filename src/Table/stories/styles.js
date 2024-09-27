@@ -1,14 +1,10 @@
 import styled from "styled-components";
-import { inube } from "@inubekit/foundations";
 
 const StyledContainerActions = styled.div`
   > svg {
     width: 24px;
     height: 24px;
     cursor: pointer;
-  }
-
-  & :hover {
   }
 `;
 
