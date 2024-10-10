@@ -21,3 +21,4 @@ export type { ITfoot } from "./Table/Tfoot";
 export type { ITh } from "./Table/Th";
 export type { IThead } from "./Table/Thead";
 export type { ITr } from "./Table/Tr";
+export { tokens as TableTokens } from "./Table/Tokens/tokens";
